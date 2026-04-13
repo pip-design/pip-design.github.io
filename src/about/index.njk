@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: "About"
+---
+
+<section class="about-page">
+  <div class="about-header">
+    <h1 class="about-title">About</h1>
+  </div>
+  <div class="about-content">
+    <div class="about-text">
+      <p><strong>Design by PIP</strong> is the portfolio of an industrial product design student focused on creating functional, considered objects.</p>
+      <p>Work spans furniture, lighting, consumer products, and spatial design — always grounded in material understanding and manufacturing awareness.</p>
+      <p>Follow the process on <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>.</p>
+    </div>
+    <div class="about-contact">
+      <h2 class="section-heading">Contact</h2>
+      <ul class="about-links">
+        {% if site.instagram %}<li><a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
+        {% if site.email %}<li><a href="mailto:{{ site.email }}">Email</a></li>{% endif %}
+      </ul>
+    </div>
+  </div>
+</section>

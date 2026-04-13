@@ -1,0 +1,93 @@
+---
+layout: base.njk
+---
+
+<article class="project-page">
+  <header class="project-header">
+    <div class="project-header-meta">
+      {% if tags %}
+        <div class="project-tags">
+          {% for tag in tags %}
+            <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if date %}
+        <time class="project-date" datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+      {% endif %}
+    </div>
+    <h1 class="project-title">{{ title }}</h1>
+    {% if description %}
+      <p class="project-subtitle">{{ description }}</p>
+    {% endif %}
+  </header>
+
+  {% if hero %}
+    <div class="project-hero">
+      <img src="{{ hero | projectImagePath(page.url) }}" alt="{{ title }}" class="lightbox-trigger" data-gallery="project">
+    </div>
+  {% endif %}
+
+  <div class="project-content">
+    {{ content | safe }}
+  </div>
+
+  {% if images %}
+    {% set hasProcess = false %}
+    {% set hasFinal = false %}
+    {% for img in images %}
+      {% if img.type == "process" %}{% set hasProcess = true %}{% endif %}
+      {% if img.type == "final" %}{% set hasFinal = true %}{% endif %}
+    {% endfor %}
+
+    {% if hasProcess %}
+      <section class="project-section">
+        <h2 class="section-heading">Process</h2>
+        <div class="image-grid image-grid--process">
+          {% for img in images %}
+            {% if img.type == "process" %}
+              <figure class="image-grid-item">
+                <img src="{{ img.src | projectImagePath(page.url) }}"
+                     alt="{{ img.caption or title }}"
+                     loading="lazy"
+                     class="lightbox-trigger"
+                     data-gallery="project"
+                     data-caption="{{ img.caption }}">
+                {% if img.caption %}
+                  <figcaption>{{ img.caption }}</figcaption>
+                {% endif %}
+              </figure>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if hasFinal %}
+      <section class="project-section">
+        <h2 class="section-heading">Final</h2>
+        <div class="image-grid image-grid--final">
+          {% for img in images %}
+            {% if img.type == "final" %}
+              <figure class="image-grid-item">
+                <img src="{{ img.src | projectImagePath(page.url) }}"
+                     alt="{{ img.caption or title }}"
+                     loading="lazy"
+                     class="lightbox-trigger"
+                     data-gallery="project"
+                     data-caption="{{ img.caption }}">
+                {% if img.caption %}
+                  <figcaption>{{ img.caption }}</figcaption>
+                {% endif %}
+              </figure>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  {% endif %}
+
+  <nav class="project-nav">
+    <a href="/" class="project-nav-back">&larr; All Projects</a>
+  </nav>
+</article>

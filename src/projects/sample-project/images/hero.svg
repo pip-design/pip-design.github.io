@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#D4CCC2"/>
+  <rect x="200" y="150" width="400" height="300" fill="none" stroke="#1A1A1A" stroke-width="3"/>
+  <rect x="250" y="200" width="120" height="200" fill="#8B7D6B" opacity="0.5"/>
+  <rect x="400" y="250" width="150" height="150" fill="#C4501A" opacity="0.3"/>
+  <line x1="200" y1="450" x2="600" y2="450" stroke="#1A1A1A" stroke-width="2"/>
+  <text x="400" y="530" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8B7D6B">MODULAR DESK ORGANISER — HERO</text>
+</svg>
