@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: ""
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Design<span class="hero-accent">/</span>PIP</h1>
+    <p class="hero-tagline">{{ site.tagline }}</p>
+  </div>
+  <div class="hero-geometric">
+    <div class="geo-circle"></div>
+    <div class="geo-line"></div>
+  </div>
+</section>
+
+{% set allTags = collections.projectTags %}
+{% if allTags.length > 0 %}
+<nav class="filter-bar" aria-label="Filter projects">
+  <button class="filter-btn active" data-filter="all">All</button>
+  {% for tag in allTags %}
+    <button class="filter-btn" data-filter="{{ tag }}">{{ tag }}</button>
+  {% endfor %}
+</nav>
+{% endif %}
+
+<section class="projects-grid" id="projects">
+  {% for project in collections.projects %}
+    {% include "components/project-card.njk" %}
+  {% endfor %}
+</section>

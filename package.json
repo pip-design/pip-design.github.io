@@ -1,0 +1,12 @@
+{
+  "name": "design-by-pip",
+  "version": "1.0.0",
+  "description": "Design by PIP - Industrial Product Design Portfolio",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

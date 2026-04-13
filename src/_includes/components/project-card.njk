@@ -1,0 +1,27 @@
+<a href="{{ project.url }}" class="project-card" {% if project.data.tags %}data-tags="{{ project.data.tags | join(',') }}"{% endif %}>
+  <div class="project-card-image">
+    {% if project.data.hero %}
+      <img src="{{ project.data.hero | projectImagePath(project.url) }}" alt="{{ project.data.title }}" loading="lazy">
+    {% else %}
+      <div class="project-card-placeholder">
+        <span>{{ project.data.title | default("Project") | truncate(1, true, "") | upper }}</span>
+      </div>
+    {% endif %}
+    <div class="project-card-overlay">
+      <span class="project-card-view">View Project</span>
+    </div>
+  </div>
+  <div class="project-card-info">
+    <h2 class="project-card-title">{{ project.data.title }}</h2>
+    {% if project.data.description %}
+      <p class="project-card-desc">{{ project.data.description }}</p>
+    {% endif %}
+    {% if project.data.tags %}
+      <div class="project-card-tags">
+        {% for tag in project.data.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</a>
